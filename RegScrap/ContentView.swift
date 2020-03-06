@@ -76,7 +76,9 @@ struct ResultsView: View {
                 }
             Divider()
             ForEach(0 ..< RegSteal.extractedCarData.sections.count) {
-                CarDataView(carData: RegSteal.extractedCarData.data[$0], dataType: RegSteal.extractedCarData.sections[$0])
+                if (RegSteal.extractedCarData.data[$0] != ""){
+                    CarDataView(carData: RegSteal.extractedCarData.data[$0], dataType: RegSteal.extractedCarData.sections[$0])
+                }
             }
             VStack{
                 Button(action: {self.presentationMode.wrappedValue.dismiss() })
